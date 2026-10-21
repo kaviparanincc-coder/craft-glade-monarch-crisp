@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f4f1eb;
+  --color-bg-elevated: #fffcf8;
+  --color-bg-subtle: #ebe6de;
+  --color-fg: #1c1917;
+  --color-muted: #57534e;
+  --color-subtle: #a8a29e;
+  --color-border: #e4ddd3;
+  --color-accent: #0f766e;
+  --color-accent-fg: #f7fffe;
+  --color-accent-soft: #e6f4f1;
+  --color-high: #be123c;
+  --color-high-soft: #fde8ee;
+  --color-medium: #b45309;
+  --color-medium-soft: #fef3c7;
+  --color-low: #1d4ed8;
+  --color-low-soft: #e0e7ff;
+  --font-sans: "Avenir Next", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.35rem;
+  --text-2xl: 1.7rem;
+  --text-3xl: 2rem;
+}
+
+.dark {
+  --color-bg: #141210;
+  --color-bg-elevated: #1e1b18;
+  --color-bg-subtle: #2a2622;
+  --color-fg: #f5f2ec;
+  --color-muted: #a8a29e;
+  --color-subtle: #78716c;
+  --color-border: #3a342e;
+  --color-accent: #2dd4bf;
+  --color-accent-fg: #042f2e;
+  --color-accent-soft: #134e4a;
+  --color-high: #fb7185;
+  --color-high-soft: #4c0519;
+  --color-medium: #fbbf24;
+  --color-medium-soft: #451a03;
+  --color-low: #93c5fd;
+  --color-low-soft: #172554;
+  color-scheme: dark;
+}
+
+:root {
+  color-scheme: light;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.sheet-in {
+  animation: sheet-in 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
